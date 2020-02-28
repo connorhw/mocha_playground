@@ -1,4 +1,5 @@
 const divide = require('../index');
+const sort = require('../index');
 const chai = require('chai');
 const expect = chai.expect;
 //or combine lines 2 and 3 => const expect = require('chai').expect;
@@ -63,3 +64,23 @@ describe('Divide function', () => {
   });
 });
 */
+
+describe('Sort function', () => {
+    it('should sort the array in ascending order', () => {
+        var list = [8, 7, 10, 4], expectedAnswer = [4, 7, 8, 10];
+
+        var actualAnswer = sort(list);
+
+        expect(actualAnswer).to.deep.equal(expectedAnswer);
+    });
+
+    it('should throw an error if it contains any string values', () => {
+        var list = [8, 7, "e", 4];
+
+        const fn = () => {
+            sort(list)
+        };
+
+        expect(fn).to.throw();
+    });
+});
