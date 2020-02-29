@@ -44,7 +44,6 @@ describe('Divide function', () => {
         
         expect(actualAnswer).to.equal(expectedAnswer);
     });
-
 });
 
 /*
@@ -69,18 +68,36 @@ describe('Sort function', () => {
     it('should sort the array in ascending order', () => {
         var list = [8, 7, 10, 4], expectedAnswer = [4, 7, 8, 10];
 
-        var actualAnswer = sort(list);
+         list.sort(function(a, b){
+             return a-b;
+         })
 
-        expect(actualAnswer).to.deep.equal(expectedAnswer);
+        expect(list).to.deep.equal(expectedAnswer);
     });
 
     it('should throw an error if it contains any string values', () => {
         var list = [8, 7, "e", 4];
 
         const fn = () => {
-            sort(list)
+            return list.sort(function(a, b){
+             return a-b;
+         })
         };
 
         expect(fn).to.throw();
     });
 });
+
+/*
+
+describe('.equal asserts using === //strictly equals', () => {
+    it('shows how === behaves with various inputs', () => {
+        expect(2).to.equal(2, '2 === 2'); // pass
+        //expect(2).to.equal("2", '2 === "2"'); // fail, wrong types
+        //expect(2).to.equal(3, '2 === 3'); // fail, wrong values
+        //expect('hen').to.equal('Hen', "'hen' == 'Hen'"); // fail, string comparison is case sensitive
+
+    });
+});
+
+*/
